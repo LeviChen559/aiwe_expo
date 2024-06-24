@@ -1,13 +1,15 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { StyleSheet, Image, Platform } from 'react-native';
-
+import * as React from 'react';
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { TextInput } from 'react-native-paper';
 
 export default function TabTwoScreen() {
+  const [text, setText] = React.useState("");
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
@@ -84,6 +86,13 @@ export default function TabTwoScreen() {
           ),
         })}
       </Collapsible>
+      <TextInput
+      multiline mode="outlined" style={{ paddingRight: 10, paddingLeft: 10, fontSize: 16, color: "black", backgroundColor: "#ffffff", minHeight:300 ,minWidth:300,borderRadius:10 }} dense textAlignVertical="center" 
+      
+      label=""
+      value={text}
+      onChangeText={text => setText(text)}
+    />
     </ParallaxScrollView>
   );
 }
